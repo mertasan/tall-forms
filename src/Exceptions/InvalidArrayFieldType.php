@@ -11,7 +11,7 @@ class InvalidArrayFieldType extends \Exception
         $lookup = [
             'array' => 'Repeater',
             'keyval' => 'Keyval',
-            'tab' => 'Tab',,
+            'tab' => 'Tab',
             'group' => 'Group'
         ];
 
