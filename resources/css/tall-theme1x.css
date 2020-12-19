@@ -517,4 +517,12 @@
     .tf-panel-icon {
         @apply h-5 w-5;
     }
+
+    /* Group */
+    .tf-group-wrapper {
+        @apply flex flex-col;
+    }
+    .tf-group-wrapper-grid {
+        @apply sm:flex sm:grid sm:grid-cols-12 sm:gap-x-2 sm:gap-y-4;
+    }
 }
