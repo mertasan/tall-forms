@@ -2,9 +2,8 @@
 
 namespace Tanthammar\TallForms;
 
-use Mertasan\FormBuilder\Exceptions\InvalidArrayFieldType;
-use Mertasan\FormBuilder\Exceptions\InvalidCKEditorType;
-use Tanthammar\TallForms\Traits\IsCKEditorField;
+use Tanthammar\TallForms\Exceptions\InvalidArrayFieldType;
+use Tanthammar\TallForms\Exceptions\InvalidCKEditorType;
 
 class CKEditor extends BaseField {
 
