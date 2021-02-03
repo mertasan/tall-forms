@@ -8,11 +8,12 @@
                             @php
                                 $nested_field->key = "{$field->key}.{$key}.{$nested_field->name}";
                                 if (!$field->labelEachRow) $nested_field->show_label = $key === 0;
-                                $nested_field->inline = $nested_field->inline ?? $field->inline;
+                                $nested_field->inline = $nested_field->inline ?? $field->childInline;
                                 $nested_field->colspan = $field->childCols ?? $nested_field->colspan;
                                 $nested_field->inArray = true;
                                 $nested_field->help = $key === 0 ? $nested_field->help : null;
                                 $nested_field->placeholder = $nested_field->placeholder ?? $nested_field->label;
+                                $nested_field->wire = filled($field->wire) ? $field->wire : $nested_field->wire;
                             @endphp
                             @include('tall-forms::includes.field-root', ['field' => $nested_field])
                         @endforeach

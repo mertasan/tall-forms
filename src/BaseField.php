@@ -10,7 +10,7 @@ use Tanthammar\TallForms\Traits\HasLabels;
 use Tanthammar\TallForms\Traits\HasSharedProperties;
 use Tanthammar\TallForms\Traits\HasViews;
 
-class BaseField
+abstract class BaseField
 {
     use HasLabels, HasAttributes, HasSharedProperties, HasDesign, HasViews;
 
@@ -45,6 +45,7 @@ class BaseField
         $this->key = 'form_data.' . $this->name;
         $this->wire = config('tall-forms.field-attributes.wire');
         $this->setAttr();
+        $this->overrides();
     }
 
     //problem with collect()->firstWhere()
@@ -52,6 +53,11 @@ class BaseField
     {
         return $this->$property;
     }*/
+
+    protected function overrides(): self
+    {
+        return $this;
+    }
 
 
     public static function make(string $label, string $key = null)
@@ -94,15 +100,16 @@ class BaseField
         $this->errorMsg = $string;
         return $this;
     }
-//redundant
-/*    public function fieldToArray(): array
+
+    //used by SpatieTags
+    public function fieldToArray(): array
     {
         $array = array();
         foreach ($this as $key => $value) {
             $array[$key] = is_array($value) ? (array) $value : $value;
         }
         return $array;
-    }*/
+    }
 
     public function before(string $text): self
     {
